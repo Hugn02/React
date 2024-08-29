@@ -7,7 +7,7 @@ const FeedbackForm = () => {
 
   const onFinish = (values) => {
     console.log("Feedback submitted:", values);
-    // Gọi API gửi email ở đây
+    
     sendFeedbackEmail(values)
       .then(() => {
         message.success("Gửi feedback thành công!");

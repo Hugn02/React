@@ -5,7 +5,6 @@ const Google = () => {
 
   const handleSuccess = (response) => {
     console.log("Google login successful, token:", response.credential);
-    // Xử lý xác thực, gửi token đến backend hoặc lưu trữ trong localStorage
   };
 
   const handleError = () => {

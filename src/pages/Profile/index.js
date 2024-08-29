@@ -7,15 +7,15 @@ const Profile = () => {
     email: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false); // Trạng thái để ẩn/hiện mật khẩu
+  const [showPassword, setShowPassword] = useState(false); 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    // Giả sử ID của người dùng hiện tại là 1
-    const userId = 1;
+    
+    const userId = 1; //Gán giá trị id là 1
 
-    // Lấy thông tin người dùng từ API khi component mount
+    
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/users/${userId}`);
@@ -39,11 +39,9 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Giả sử ID của người dùng hiện tại là 1
-      const userId = 1;
+    try { 
+      const userId = 1;//Gán giá trị id là 1
 
-      // Gửi yêu cầu cập nhật thông tin người dùng
       await axios.patch(`http://localhost:8080/users/${userId}`, userData);
 
       setSuccess("Cập nhật thông tin thành công!");
@@ -81,7 +79,7 @@ const Profile = () => {
         <div>
           <label>Mật khẩu:</label>
           <input
-            type={showPassword ? "text" : "password"} // Thay đổi type dựa trên trạng thái showPassword
+            type={showPassword ? "text" : "password"} 
             name="password"
             value={userData.password}
             onChange={handleChange}
@@ -90,7 +88,7 @@ const Profile = () => {
             <input
               type="checkbox"
               checked={showPassword}
-              onChange={() => setShowPassword(!showPassword)} // Toggle showPassword khi click checkbox
+              onChange={() => setShowPassword(!showPassword)} 
             />
             <label>Hiện mật khẩu</label>
           </div>

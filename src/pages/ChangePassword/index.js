@@ -17,10 +17,7 @@ const ChangePassword = () => {
     }
 
     try {
-      // Giả sử ID của người dùng hiện tại là 1
-      const userId = 1;
-
-      // Lấy thông tin người dùng từ db.json
+      const userId = 1;//Gán giá trị id là 1
       const response = await axios.get(`http://localhost:8080/users/${userId}`);
       const user = response.data;
 
@@ -29,7 +26,6 @@ const ChangePassword = () => {
         return;
       }
 
-      // Gửi yêu cầu cập nhật mật khẩu mới
       await axios.patch(`http://localhost:8080/users/${userId}`, {
         password: newPassword,
       });
