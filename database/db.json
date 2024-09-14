@@ -4,7 +4,7 @@
       "id": "1",
       "email": "admin@gmail.com",
       "password": "123456",
-      "username": "Hung",
+      "username": "Hugn",
       "role": "admin"
     },
     {
@@ -150,18 +150,18 @@
     {
       "id": "4891",
       "idUser": 1,
-      "idExam": "6551",
-      "subject": "html",
-      "title": "Đề thi HTML 1",
+      "idExam": "0aa2",
+      "subject": "css",
+      "title": "Đề thi CSS 1",
       "time_progess": 3,
       "score": 2
     },
     {
       "id": "72ca",
       "idUser": 1,
-      "idExam": "6551",
-      "subject": "html",
-      "title": "Đề thi HTML 1",
+      "idExam": "c194",
+      "subject": "javascript",
+      "title": "Đề thi Javascript 1",
       "time_progess": 2,
       "score": 0
     }

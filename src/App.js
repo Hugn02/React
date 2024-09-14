@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Navigate, Route, Routes, Router } from 'react-router-dom';
 import Home from './pages/Home';
 import ListExams from './pages/ListExams';
 import Contact from './pages/Contact';
@@ -25,12 +25,18 @@ const PrivateRoute = ({ children }) => {
 	return isAuthenticated ? children : <Navigate to='/' />;
 };
 
+
+
 const App = () => {
+	
 	return (
+		
 		<div>
+			
+			
 			<AuthProvider>
 				<Routes>
-					<Route path='/' element={<DefaultLayout />}>
+					<Route path='/' element={<DefaultLayout />} >
 						<Route path='' element={<Home />} />
 						<Route path='list-exams' element={<ListExams />} />
 						<Route path='contact' element={<Contact />} />
@@ -65,7 +71,7 @@ const App = () => {
 							}
 						/>
 					</Route>
-					<Route path='/admin' element={<Admin />}>
+					<Route path='/admin' element={<Admin />} >
 						<Route index element={<Dashboard />} />
 						<Route path='exams' element={<ManageExams />} />
 						<Route path='exams/create' element={<CreateExam />} />

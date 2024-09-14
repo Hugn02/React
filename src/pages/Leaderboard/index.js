@@ -1,38 +1,76 @@
 import React, { useEffect, useState } from 'react';
+import { Table, Card, Space } from 'antd';
+
+
 
 function Leaderboard() {
     const [topExams, setTopExams] = useState([]);
     const [topSubjects, setTopSubjects] = useState([]);
 
+    
     useEffect(() => {
         fetch('http://localhost:8080/histories')
             .then(response => response.json())
-            .then(data => setTopExams(data));
-
-        fetch('http://localhost:8080/exams')
-            .then(response => response.json())
-            .then(data => setTopSubjects(data));
+            .then(data => setTopExams(data));     
     }, []);
 
-    return (
-        <div>
-            <h2>Đề thi được thi nhiều nhất</h2>
-            <ul>
-                {topExams.map(exam => (
-                    <li key={exam.id}>
-                        {exam.title} - {exam.score} Điểm
-                    </li>
-                ))}
-            </ul>
+    
+    useEffect(() => {
+        fetch('http://localhost:8080/exams')
+            .then(response => response.json())
+            .then(data => setTopSubjects(data));     
+    }, []);
 
-            <h2>Môn học nhiều đề thi nhất</h2>
-            <ul>
-                {topSubjects.map(subject => (
-                    <li key={subject.id}>
-                        {subject.subject} - {subject.level} 
-                    </li>
-                ))}
-            </ul>
+    
+    const examColumns = [
+        {
+            title: 'Tên đề thi',
+            dataIndex: 'title',
+            key: 'title',
+        },
+        {
+            title: 'Điểm thi',
+            dataIndex: 'score',
+            key: 'score',
+        }
+    ];
+
+    
+    const subjectColumns = [
+        {
+            title: 'Tên môn học',
+            dataIndex: 'subject',
+            key: 'subject',
+        },
+        {
+            title: 'Mức độ',
+            dataIndex: 'level',
+            key: 'level',
+        }
+    ];
+
+    return (
+        <div style={{ padding: '20px' }}>
+            <Space direction="vertical" size="large" style={{ width: '100%' }}>
+                <Card title="Đề thi được thi nhiều nhất" bordered={false}>
+                    <Table 
+                        columns={examColumns} 
+                        dataSource={topExams} 
+                        rowKey="id" 
+                        pagination={false} 
+                    />
+                </Card>
+
+                
+                <Card title="Môn học nhiều đề thi nhất" bordered={false}>
+                    <Table 
+                        columns={subjectColumns} 
+                        dataSource={topSubjects} 
+                        rowKey="subject" 
+                        pagination={false} 
+                    />
+                </Card>
+            </Space>
         </div>
     );
 }

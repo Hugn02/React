@@ -12,7 +12,7 @@ const Google = () => {
   };
 
   return (
-    <GoogleOAuthProvider clientId="YOUR_GOOGLE_CLIENT_ID">
+    <GoogleOAuthProvider>
       <div>
         <h2>Đăng nhập bằng Google</h2>
         <GoogleLogin

@@ -364,26 +364,24 @@ const Navigation = () => {
 						<li>
 							<NavLink to='/contact'>Liên hệ</NavLink>
 						</li>
+						<li>
+					        <NavLink to='/search'>Tìm Kiếm</NavLink>
+					    </li>
+						<li>
+					        <NavLink to='/google'>Google</NavLink>
+					    </li>
+						<li>
+					       <NavLink to='/leaderboard'>Bảng xếp hạng</NavLink>
+					    </li>
+					    <li>
+					       <NavLink to='/comment'>Bình luận</NavLink>
+					    </li>
 					</ul>
 					<label htmlFor='menu-btn' className='btn menu-btn'>
 						<i className='fas fa-bars' />
 					</label>
-					<div>
-					<NavLink to='/search'>Tìm Kiếm</NavLink>
 
-					</div>
-					<div>
-					<NavLink to='/google'>Google</NavLink>
-
-					</div>
-					<div>
-					<NavLink to='/leaderboard'>Bảng xếp hạng</NavLink>
-
-					</div>
-					<div>
-					<NavLink to='/comment'>Bình luận</NavLink>
-
-					</div>
+					
 					
 
 					<div className='profile'>
